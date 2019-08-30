@@ -22,7 +22,7 @@ class ProductsController < ApplicationController
     render plain: @product.description
   end
 
-  def availability
+  def inventory
     render plain: !!@product.inventory
   end
 
