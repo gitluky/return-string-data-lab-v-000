@@ -2,7 +2,7 @@
   <%= content_tag(:div) do %>
     <%= product.name %>
     <%= content_tag(:div, '', id: "description-#{product.id}") do %>
-      <%= truncate product.description %>
+      <%= product.description %>
     <% end %>
     <%= content_tag(:div, '', id: "inventory-#{product.id}") %>
     <%= button_tag 'More Info', class: 'more-info', data: { 'product-id': "#{product.id}" } %>
