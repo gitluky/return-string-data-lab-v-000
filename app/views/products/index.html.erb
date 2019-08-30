@@ -11,7 +11,6 @@
   $(function () {
     $('.more-info').on('click', function() {
       let productId = $(this).data('product-id');
-      window.console.log(productId);
       $.get('/products/' + productId + '/description', function(description) {
           $('#description-' + productId).text(description);
       });
