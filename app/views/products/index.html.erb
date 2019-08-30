@@ -9,7 +9,7 @@
 
 <script type="text/javascript" charset="utf-8" >
   $(function () {
-    debugger;
+    <% binding.pry %>
     $('.more-info').on('click', function() {
       let productId = $(this).data('product-id');
       $.get('/products/' + productId + '/description', function(description) {
