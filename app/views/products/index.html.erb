@@ -1,6 +1,8 @@
 <% @products.each do |product| %>
   <%= product.name %>
-  <%= content_tag(:div, '', id: "description-#{product.id}") %>
+  <%= content_tag(:div, '', id: "description-#{product.id}") do %>
+    <%= truncate product.description %>
+  <% end %>
   <%= content_tag(:div, '', id: "inventory-#{product.id}") %>
   <%= product.price %>
   <%= button_tag 'More Info', class: 'more-info', data: { 'product-id': "#{product.id}" } %>
