@@ -2,6 +2,7 @@
   <%= product.name %>
   <%= product.price %>
   <%= content_tag(:div, '', id: "full-description-#{product.id}") %>
+  <%= content_tag(:div, '', id: "availability-#{product.id}") %>
   <%= button_tag 'More Info', class: 'more-info', data: { 'product-id': "#{product.id}" } %>
 <% end %>
 
@@ -9,8 +10,17 @@
   $(function () {
     $('.more-info').on('click', function() {
       let productId = $(this).data('product-id');
+      
       $.get('/products/' + productId + '/description', function(description) {
           $('#full-description-' + productId).text(description);
+      });
+      
+      $.get('/products/' + productId + '/availability', function(availability) {
+          if (availability === 'true') {
+            $('#availability-' + productId).text('Available');
+          } else {
+            $('#availability-' + productId).text('Sold Out');
+          }  
       });
     });
   });
