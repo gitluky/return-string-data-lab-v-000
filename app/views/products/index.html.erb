@@ -1,10 +1,12 @@
 <% @products.each do |product| %>
-  <%= product.name %>
-  <%= content_tag(:div, '', id: "description-#{product.id}") do %>
-    <%= truncate product.description %>
+  <%= content_tag(:div) do %>
+    <%= product.name %>
+    <%= content_tag(:div, '', id: "description-#{product.id}") do %>
+      <%= truncate product.description %>
+    <% end %>
+    <%= content_tag(:div, '', id: "inventory-#{product.id}") %>
+    <%= button_tag 'More Info', class: 'more-info', data: { 'product-id': "#{product.id}" } %>
   <% end %>
-  <%= content_tag(:div, '', id: "inventory-#{product.id}") %>
-  <%= button_tag 'More Info', class: 'more-info', data: { 'product-id': "#{product.id}" } %>
 <% end %>
 
 <script type="text/javascript" charset="utf-8" >
