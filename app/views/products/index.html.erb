@@ -4,7 +4,6 @@
     <%= truncate product.description %>
   <% end %>
   <%= content_tag(:div, '', id: "inventory-#{product.id}") %>
-  <%= product.price %>
   <%= button_tag 'More Info', class: 'more-info', data: { 'product-id': "#{product.id}" } %>
 <% end %>
 
