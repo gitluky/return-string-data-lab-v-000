@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:description, :availability]
+  before_action :set_product, only: [:description, :inventory]
   def index
     @products = Product.all
   end
