@@ -16,7 +16,7 @@
       });
       
       $.get('/products/' + productId + '/inventory', function(inventory) {
-          if (availability === 'true') {
+          if (inventory === 'true') {
             $('#inventory-' + productId).text('Available');
           } else {
             $('#inventory-' + productId).text('Sold Out');
