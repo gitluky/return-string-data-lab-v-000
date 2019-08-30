@@ -10,7 +10,6 @@
   $(function () {
     $('.more-info').on('click', function() {
       let productId = $(this).data('product-id');
-      
       $.get('/products/' + productId + '/description', function(description) {
           $('#description-' + productId).text(description);
       });
