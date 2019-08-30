@@ -1,17 +1,16 @@
 <% @products.each do |product| %>
   <%= product.name %>
   <%= product.price %>
-  <%= content_tag(:div, '', id: 'full-description') %>
-  <%= button_tag 'More Info', class: 'more-info', data: { productId: "#{product.id}" } %>
-  <% binding.pry %>
+  <%= content_tag(:div, '', id: "full-description-#{product.id}") %>
+  <%= button_tag 'More Info', class: 'more-info', data: { 'product-id': "#{product.id}" } %>
 <% end %>
 
 <script type="text/javascript" charset="utf-8" >
   $(function () {
     $('.more-info').on('click', function() {
-      let productId = $(this).data('productId');
+      let productId = $(this).data('product-id');
       $.get('/products/' + productId + '/description', function(description) {
-          $('#full-description').text = description;
+          $('#full-description-' + productId).text(description);
       });
     });
   });
